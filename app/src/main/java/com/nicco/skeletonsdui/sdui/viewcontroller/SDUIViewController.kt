@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.nicco.skeletonsdui.sdui.components.Component
 import android.view.Gravity
 import android.widget.LinearLayout
+import com.nicco.skeletonsdui.sdui.listener.Listener
 
 
 class SDUIViewController constructor(
@@ -16,6 +17,7 @@ class SDUIViewController constructor(
     attributeSet: AttributeSet
 ) : ConstraintLayout(context, attributeSet) {
 
+    private lateinit var listComponentSavedInMemory: List<Component>
     private lateinit var scrollView: ScrollView
     private lateinit var rootLayout: ConstraintLayout
 
@@ -33,18 +35,28 @@ class SDUIViewController constructor(
         addView(rootLayout)
     }
 
-    fun setupView(listComponent: List<Component>) {
+    fun setupView(listComponent: List<Component>, actionListener: Listener) {
+
+        listComponentSavedInMemory = listComponent
         rootLayout.addView(configureScrollView(rootLayout))
 
         val linearLayout = LinearLayout(context)
         linearLayout.orientation = LinearLayout.VERTICAL
         linearLayout.gravity = Gravity.CENTER
 
-        for (element in listComponent) {
-            linearLayout.addView(element.getView(context))
-        }
+        setComponentsInsideLinearLayout(actionListener, linearLayout)
 
         scrollView.addView(linearLayout)
+    }
+
+    private fun setComponentsInsideLinearLayout(
+        actionListener: Listener,
+        linearLayout: LinearLayout
+    ) {
+        for (element in listComponentSavedInMemory) {
+            element.setObserableAction(actionListener)
+            linearLayout.addView(element.getView(context))
+        }
     }
 
     private fun configureScrollView(rootViewGroup: ConstraintLayout): View? {
@@ -63,5 +75,14 @@ class SDUIViewController constructor(
         this.scrollView = scrollView
 
         return scrollView
+    }
+
+    fun validateComponents(): Boolean {
+        var isValid = false
+        for(element in listComponentSavedInMemory) {
+            isValid = element.isValid()
+        }
+
+        return isValid
     }
 }

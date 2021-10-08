@@ -1,4 +1,5 @@
 package com.nicco.skeletonsdui.sdui.listener
 
-class Listener {
+interface Listener {
+    fun onItemChanged()
 }
