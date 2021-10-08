@@ -35,7 +35,6 @@ class EditText : Validator, Component() {
     }
 
     override fun setObserableAction(action: Listener) {
-        super.setObserableAction(action)
         actionListener = action
     }
 }
