@@ -2,11 +2,8 @@ package com.nicco.skeletonsdui.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
-import com.google.android.material.snackbar.Snackbar
 import com.nicco.skeletonsdui.R
 import com.nicco.skeletonsdui.databinding.ActivityMainBinding
 import com.nicco.skeletonsdui.presentation.SDUIViewModel
