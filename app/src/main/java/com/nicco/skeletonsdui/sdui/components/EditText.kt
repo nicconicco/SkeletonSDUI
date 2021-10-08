@@ -21,21 +21,15 @@ class EditText : Validator, Component() {
         editText.hint = "Just numbers are allowed"
         editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (isValid()) {
-                    actionListener.onItemChanged()
-                }
+                actionListener.onItemChanged()
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (isValid()) {
-                    actionListener.onItemChanged()
-                }
+                actionListener.onItemChanged()
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (isValid()) {
-                    actionListener.onItemChanged()
-                }
+                actionListener.onItemChanged()
             }
         })
 

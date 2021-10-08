@@ -78,11 +78,8 @@ class SDUIViewController constructor(
     }
 
     fun validateComponents(): Boolean {
-        var isValid = false
-        for(element in listComponentSavedInMemory) {
-            isValid = element.isValid()
-        }
+        val result = listComponentSavedInMemory.filter { !it.isValid() }
 
-        return isValid
+        return result.isEmpty()
     }
 }
