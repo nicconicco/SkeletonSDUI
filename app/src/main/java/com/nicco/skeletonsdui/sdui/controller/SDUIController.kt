@@ -8,8 +8,6 @@ class SDUIController {
 
     private val creator: Creator = Creator()
 
-    lateinit var listComponentsSavedInMemory: List<Component>
-
     fun createComponents(componentResponse: SDUIResponse): List<Component> {
         val list = mutableListOf<Component>()
 
@@ -18,8 +16,6 @@ class SDUIController {
         for (element in components) {
             list.add(creator.createComponent(element))
         }
-
-        listComponentsSavedInMemory = list.toMutableList()
 
         return list
     }
