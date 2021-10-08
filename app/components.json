@@ -1,0 +1,20 @@
+{
+  "state":"Success",
+  "component":[
+    {
+      "typeComponent":"EditText",
+      "validator":"isEmptyString",
+      "styles": {"background" : "#FFFFFF", "colorText" : "#000000"}
+    },
+    {
+      "typeComponent":"TextView",
+      "validator":"NoValidator",
+      "styles": {"background" : "#FFFFFF", "colorText" : "#000000"}
+    },
+    {
+      "typeComponent":"Picker",
+      "validator":"SelectOneDefault",
+      "styles": {"background" : "#FFFFFF", "colorText" : "#000000"}
+    }
+  ]
+}
