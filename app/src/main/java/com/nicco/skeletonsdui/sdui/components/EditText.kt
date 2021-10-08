@@ -12,9 +12,7 @@ class EditText : Validator, Component() {
     private lateinit var actionListener: Listener
     private lateinit var editText: EditText
 
-    override fun isValid(): Boolean {
-        return editText.text.isNotEmpty()
-    }
+    override fun isValid(): Boolean = editText.text.isNotEmpty()
 
     override fun getView(context: Context): View {
         editText = EditText(context)

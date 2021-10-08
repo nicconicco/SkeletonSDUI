@@ -36,7 +36,6 @@ class SDUIViewController constructor(
     }
 
     fun setupView(listComponent: List<Component>, actionListener: Listener) {
-
         listComponentSavedInMemory = listComponent
         rootLayout.addView(configureScrollView(rootLayout))
 

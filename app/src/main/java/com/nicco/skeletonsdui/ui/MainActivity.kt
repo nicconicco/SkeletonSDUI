@@ -32,10 +32,6 @@ class MainActivity : AppCompatActivity() {
                 onItemChangedMainActivity()
             }
         })
-
-        binding.btnOutside.setOnClickListener {
-
-        }
     }
 
     private fun onItemChangedMainActivity() {
