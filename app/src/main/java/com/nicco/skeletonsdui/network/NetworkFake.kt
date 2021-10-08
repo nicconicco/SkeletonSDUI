@@ -3,15 +3,9 @@ package com.nicco.skeletonsdui.network
 import com.nicco.skeletonsdui.network.response.ComponentResponse
 import com.nicco.skeletonsdui.network.response.SDUIResponse
 import com.nicco.skeletonsdui.network.response.StylesResponse
-import com.nicco.skeletonsdui.sdui.components.Component
-import com.nicco.skeletonsdui.sdui.controller.SDUIController
 
-class NetworkFake(private val sduiController: SDUIController) {
-    fun getSDUIcomponents(): List<Component> {
-        val response = retrofitGetServiceInWeb()
-
-        return sduiController.createComponents(response)
-    }
+class NetworkFake() {
+    fun getSDUIcomponents(): SDUIResponse = retrofitGetServiceInWeb()
 
     private fun retrofitGetServiceInWeb(): SDUIResponse {
         //just a mock

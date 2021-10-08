@@ -7,6 +7,7 @@ import com.nicco.skeletonsdui.sdui.controller.SDUIController
 
 class SDUIViewModel : ViewModel() {
     fun getSDUIcomponents(): List<Component> {
-        return NetworkFake(SDUIController()).getSDUIcomponents()
+        val componentResponse = NetworkFake().getSDUIcomponents()
+        return SDUIController().createComponents(componentResponse)
     }
 }
